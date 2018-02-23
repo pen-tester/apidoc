@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,10 +211,10 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -228,10 +228,10 @@
             <a href="#checkout" class="toc-h1 toc-link" data-title="checkout">Checkout</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#checkout-with-api" class="toc-h2 toc-link" data-title="checkout-with-api">Checkout with Api</a>
+                    <a href="#checkout-via-api" class="toc-h2 toc-link" data-title="checkout-via-api">Checkout via API</a>
                   </li>
                   <li>
-                    <a href="#checkout-by-posting-the-vault-server" class="toc-h2 toc-link" data-title="checkout-by-posting-the-vault-server">Checkout by posting the vault server</a>
+                    <a href="#checkout-by-posting-to-the-vault-app-web-server" class="toc-h2 toc-link" data-title="checkout-by-posting-to-the-vault-app-web-server">Checkout by posting to The Vault App web server</a>
                   </li>
               </ul>
           </li>
@@ -240,6 +240,17 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#get-status-of-the-payment-request" class="toc-h2 toc-link" data-title="get-status-of-the-payment-request">Get Status of the payment request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#api-terms-of-use" class="toc-h1 toc-link" data-title="api-terms-of-use">API Terms of Use</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#attributes" class="toc-h2 toc-link" data-title="attributes">Attributes</a>
+                  </li>
+                  <li>
+                    <a href="#rate-limits" class="toc-h2 toc-link" data-title="rate-limits">Rate Limits</a>
                   </li>
               </ul>
           </li>
@@ -256,8 +267,8 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Vault Payment API! You can use our API to access Vault API endpoints.</p>
-<h1 id='checkout'>Checkout</h1><h2 id='checkout-with-api'>Checkout with Api</h2>
+<p>Welcome to The Vault App Payment API. Through the API endpoints, Clients have the ability to initiate $ Requests and check $ Request statuses.</p>
+<h1 id='checkout'>Checkout</h1><h2 id='checkout-via-api'>Checkout via API</h2>
 <blockquote>
 <p>To checkout, use this code:</p>
 </blockquote>
@@ -276,7 +287,7 @@
 <p>Make sure to replace <code>api_key</code> with your API key.</p>
 </blockquote>
 
-<p>Vault uses API keys to allow access to the API. You can register a new Vault API key at our (https://www.thevaultapp.com/business/api).</p>
+<p>TVA uses API keys to allow access to the API. You can register a new Vault API key at <a href="https://www.thevaultapp.com/business/api">https://www.thevaultapp.com/business/api</a>.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://api.thevaultapp.com/checkout</code></p>
 
@@ -326,7 +337,7 @@ You must replace <code>api_key</code> with your personal API key.
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='checkout-by-posting-the-vault-server'>Checkout by posting the vault server</h2>
+</span></code></pre><h2 id='checkout-by-posting-to-the-vault-app-web-server'>Checkout by posting to The Vault App web server</h2>
 <blockquote>
 <p>To checkout, use this code:</p>
 </blockquote>
@@ -345,7 +356,7 @@ You must replace <code>api_key</code> with your personal API key.
 <p>Make sure to replace <code>api_key</code> with your API key.</p>
 </blockquote>
 
-<p>Vault uses API keys to allow access to the API. You can register a new Vault API key at our (https://www.thevaultapp.com/business/api).</p>
+<p>TVA uses API keys to allow access to the API. You can register a new Vault API key at <a href="https://www.thevaultapp.com/business/api">https://www.thevaultapp.com/business/api</a>.</p>
 
 <aside class="notice">
 You must replace <code>api_key</code> with your personal API key.
@@ -395,8 +406,7 @@ You must replace <code>api_key</code> with your personal API key.
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <aside class="notice">
-  If the <code>phone</code> is empty, it will redirect to the vault server form to input the phone number.
-  After approving or denying the request, the last status page will say the request status.
+   If the <code>phone</code> is empty, it will redirect to a TVA web form to input a phone number. After approving or denying the request, the last status page will say the request status.
 </aside>
 <h1 id='query'>Query</h1><h2 id='get-status-of-the-payment-request'>Get Status of the payment request</h2><pre class="highlight javascript tab-javascript"><code>  <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
     <span class="na">url</span><span class="p">:</span><span class="s2">"https://api.thevaultapp.com/checkout/query/{request_id}"</span><span class="p">,</span>
@@ -461,6 +471,33 @@ You must replace <code>api_key</code> with your personal API key.
 <aside class="success">
 Remember — if token is unset, the api would not work properly.
 </aside>
+<h1 id='api-terms-of-use'>API Terms of Use</h1><h2 id='attributes'>Attributes</h2>
+<p>Clients must use a TVA image somewhere within the page using TVA api.</p>
+<h3 id='available-sizes'>Available sizes:</h3>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Checkout Button</td>
+<td><img src="images/tva_buttons/CheckoutButton.png" class="checkoutbuttonimg" alt="Logo"></td>
+<td><ul><li><a href="images/tva_buttons/CheckoutButton.png">Normal</a>  </li><li><a href="images/tva_buttons/CheckoutButton_S.png">Small</a>  </li><li><a href="images/tva_buttons/CheckoutButton 2.png">Normal White</a>  </li><li><a href="images/tva_buttons/CheckoutButton_S 2.png">Small White</a>  </li></ul></td>
+</tr>
+<tr>
+<td>Pay Button</td>
+<td><img src="images/tva_buttons/PayButton.png" class="checkoutbuttonimg" alt="Logo"></td>
+<td><ul><li><a href="images/tva_buttons/PayButton.png">Normal</a>  </li><li><a href="images/tva_buttons/PayButton_S.png">Small</a>  </li><li><a href="images/tva_buttons/PayButton 2.png">Normal White</a>  </li><li><a href="images/tva_buttons/PayButton_S 2.png">Small White</a>  </li></ul></td>
+</tr>
+</tbody></table>
+
+<p>Failure to implement the proper attribution may result in account suspension.</p>
+<h2 id='rate-limits'>Rate Limits</h2>
+<p>The TVA API by default will not impose rate limiting on accounts. However, API usage is tracked and any abuse of the system will result in an account suspension and an inquiry into the high activity.</p>
+
+<p>If your company is planning on high activity, please contact admin@vaultpaymentsystem.com with a request for an unrestricted rate limit.</p>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
     The status of api result says the api processing success.
@@ -476,11 +513,11 @@ Remember — if token is unset, the api would not work properly.
 </thead><tbody>
 <tr>
 <td>0</td>
-<td>Request Faild -- The api calling is failed.</td>
+<td>Request Failed -- The API call failed.</td>
 </tr>
 <tr>
 <td>1</td>
-<td>Api Sucess -- The api calling is success.</td>
+<td>Api Success -- The API call was successful.</td>
 </tr>
 </tbody></table>
 
@@ -492,10 +529,10 @@ Remember — if token is unset, the api would not work properly.
       </div>
       <div class="dark-box">
           <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
                 <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
