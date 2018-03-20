@@ -228,18 +228,7 @@
             <a href="#checkout" class="toc-h1 toc-link" data-title="checkout">Checkout</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#checkout-via-api" class="toc-h2 toc-link" data-title="checkout-via-api">Checkout via API</a>
-                  </li>
-                  <li>
                     <a href="#checkout-by-posting-to-the-vault-app-web-server" class="toc-h2 toc-link" data-title="checkout-by-posting-to-the-vault-app-web-server">Checkout by posting to The Vault App web server</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#query" class="toc-h1 toc-link" data-title="query">Query</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-status-of-the-payment-request" class="toc-h2 toc-link" data-title="get-status-of-the-payment-request">Get Status of the payment request</a>
                   </li>
               </ul>
           </li>
@@ -249,13 +238,7 @@
                   <li>
                     <a href="#attributes" class="toc-h2 toc-link" data-title="attributes">Attributes</a>
                   </li>
-                  <li>
-                    <a href="#rate-limits" class="toc-h2 toc-link" data-title="rate-limits">Rate Limits</a>
-                  </li>
               </ul>
-          </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
         <ul class="toc-footer">
@@ -268,76 +251,7 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to The Vault App Payment API. Through the API endpoints, Clients have the ability to initiate $ Requests and check $ Request statuses.</p>
-<h1 id='checkout'>Checkout</h1><h2 id='checkout-via-api'>Checkout via API</h2>
-<blockquote>
-<p>To checkout, use this code:</p>
-</blockquote>
-<pre class="highlight javascript tab-javascript"><code>  <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-    <span class="na">url</span><span class="p">:</span><span class="s2">"https://api.thevaultapp.com/checkout"</span><span class="p">,</span>
-    <span class="na">data</span><span class="p">:{</span>
-      <span class="na">token</span><span class="p">:{</span><span class="nx">api_key</span><span class="p">},</span>
-      <span class="na">phone</span><span class="p">:{</span><span class="nx">customer_phone_number</span><span class="p">},</span>
-      <span class="na">amount</span><span class="p">:{</span><span class="nx">amount</span> <span class="nx">to</span> <span class="nx">checkout</span><span class="p">}</span>
-    <span class="p">},</span>
-    <span class="na">type</span><span class="p">:</span><span class="s2">"POST"</span>
-  <span class="p">})</span>
-
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>api_key</code> with your API key.</p>
-</blockquote>
-
-<p>TVA uses API keys to allow access to the API. You can register a new Vault API key at <a href="https://www.thevaultapp.com/business/api">https://www.thevaultapp.com/business/api</a>.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://api.thevaultapp.com/checkout</code></p>
-
-<aside class="notice">
-You must replace <code>api_key</code> with your personal API key.
-</aside>
-<h3 id='post-parameters'>Post Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>token</td>
-<td>empty</td>
-<td>Registered the api key in the business/api.</td>
-<td>true</td>
-</tr>
-<tr>
-<td>phone</td>
-<td>empty</td>
-<td>The customer phone number where the payment request is sent.</td>
-<td>true</td>
-</tr>
-<tr>
-<td>amount</td>
-<td>empty</td>
-<td>The payment amount to checkout</td>
-<td>true</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"requestid"</span><span class="p">:</span><span class="s2">"829191sfwiwiw2923sf"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">10.44</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"phone"</span><span class="p">:</span><span class="s2">"+12402211454"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"employeeemail"</span><span class="p">:</span><span class="s2">"no-reply@thevaultapp.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"pending"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='checkout-by-posting-to-the-vault-app-web-server'>Checkout by posting to The Vault App web server</h2>
+<h1 id='checkout'>Checkout</h1><h2 id='checkout-by-posting-to-the-vault-app-web-server'>Checkout by posting to The Vault App web server</h2>
 <blockquote>
 <p>To checkout, use this code:</p>
 </blockquote>
@@ -361,7 +275,7 @@ You must replace <code>api_key</code> with your personal API key.
 <aside class="notice">
 You must replace <code>api_key</code> with your personal API key.
 </aside>
-<h3 id='post-parameters-2'>Post Parameters</h3>
+<h3 id='post-parameters'>Post Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -408,65 +322,6 @@ You must replace <code>api_key</code> with your personal API key.
 <aside class="notice">
    If the <code>phone</code> is empty, it will redirect to a TVA web form to input a phone number. After approving or denying the request, the last status page will say the request status.
 </aside>
-<h1 id='query'>Query</h1><h2 id='get-status-of-the-payment-request'>Get Status of the payment request</h2><pre class="highlight javascript tab-javascript"><code>  <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-    <span class="na">url</span><span class="p">:</span><span class="s2">"https://api.thevaultapp.com/checkout/query/{request_id}"</span><span class="p">,</span>
-    <span class="na">data</span><span class="p">:{</span>
-      <span class="na">token</span><span class="p">:{</span><span class="nx">api_key</span><span class="p">}</span>
-    <span class="p">},</span>
-    <span class="na">type</span><span class="p">:</span><span class="s2">"POST"</span>
-  <span class="p">}).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">,</span> <span class="nx">status</span><span class="p">){</span>
-    <span class="c1">//Process api calling success</span>
-  <span class="p">}).</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">,</span> <span class="nx">status</span><span class="p">){</span>
-    <span class="c1">//Process api calling fail</span>
-  <span class="p">})</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"result"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9ss023swowflwsow293023"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"Approved"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">1</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves status of the request.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://api.thevaultapp.com/checkout/query/{request_id}</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-<th>Reuqired</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>request_id</td>
-<td>empty</td>
-<td>The request id gotten from the checkout api.</td>
-<td>true</td>
-</tr>
-</tbody></table>
-<h3 id='post-parameters-3'>Post Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-<th>Reuqired</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>token</td>
-<td>empty</td>
-<td>Registered the api key in the business/api.</td>
-<td>true</td>
-</tr>
-</tbody></table>
 
 <aside class="success">
 Remember — if token is unset, the api would not work properly.
@@ -494,37 +349,6 @@ Remember — if token is unset, the api would not work properly.
 </tbody></table>
 
 <p>Failure to implement the proper attribution may result in account suspension.</p>
-<h2 id='rate-limits'>Rate Limits</h2>
-<p>The TVA API by default will not impose rate limiting on accounts. However, API usage is tracked and any abuse of the system will result in an account suspension and an inquiry into the high activity.</p>
-
-<p>If your company is planning on high activity, please contact admin@vaultpaymentsystem.com with a request for an unrestricted rate limit.</p>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-    The status of api result says the api processing success.
-</aside>
-
-<p>The Vault API uses the following status codes:</p>
-
-<table><thead>
-<tr>
-<th>Status Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>0</td>
-<td>Request Failed -- The API call failed.</td>
-</tr>
-<tr>
-<td>1</td>
-<td>Api Success -- The API call was successful.</td>
-</tr>
-</tbody></table>
-
-<aside class="warning">
- The error says the error message if the error is caused when the api is calling.
- The status code is 0 at this time.
-</aside>
 
       </div>
       <div class="dark-box">
